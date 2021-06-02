@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+ <!-- section-header.// -->
+<style>
+	/* start features area css
+============================================================================================ */
+@media (max-width: 768px) {
+    .features-area {
+      padding-top: 0; } }
+  .features-area .col-lg-3:last-child .single-features {
+    border-right: 0; }
+    @media (max-width: 575px) {
+      .features-area .col-lg-3:last-child .single-features {
+        margin-top: 30px; } }
+  .features-area .col-lg-3:nth-child(3) .single-features,
+  .features-area .col-lg-3:nth-child(4) .single-features {
+    margin-bottom: 0; }
+  
+  .features-inner {
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+    padding: 40px 0;
+    margin-top: 30px; }
+  
+  .single-features {
+    text-align: center;
+    border-right: 1px solid #eeeeee; }
+    @media (max-width: 991px) {
+      .single-features {
+        border-right: none;
+        margin-bottom: 30px; } }
+    .single-features .f-icon {
+      margin-bottom: 20px; }
+      .single-features .f-icon img {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s; }
+    .single-features h6 {
+      font-size: 16px;
+      margin-bottom: 0; }
+    .single-features p {
+      margin-bottom: 0; }
+    .single-features:hover .f-icon img {
+      opacity: .5; }
+</style>
+
+<!-- ========================= SECTION MAIN ========================= -->
+<section class="section-intro padding-y-sm">
+	<div class="container" style="height: 400px;">
+		<div class="intro-banner-wrap" style="align-content: center; width: 1180px;">
+			<img src="{% static 'images/banners/banner.png' %}" class="img-fluid rounded" style="width: 1180px;">
+		</div>
+
+	</div>
+	<span></span>
+	<div class="container">
+		<!-- start features Area -->
+		<section class="features-area section_gap">
+			<div class="container">
+				<div class="row features-inner">
+					<!-- single features -->
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-features">
+							<div class="f-icon">
+								<img src="{% static 'images/features/f-icon1.png' %}" alt="">
+							</div>
+							<h6>Free Delivery</h6>
+							<p>Free Shipping on all order</p>
+						</div>
+					</div>
+					<!-- single features -->
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-features">
+							<div class="f-icon">
+								<img src="{% static 'images/features/f-icon2.png' %}" alt="">
+							</div>
+							<h6>Return Policy</h6>
+							<p>Free Shipping on all order</p>
+						</div>
+					</div>
+					<!-- single features -->
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-features">
+							<div class="f-icon">
+								<img src="{% static 'images/features/f-icon3.png' %}" alt="">
+							</div>
+							<h6>24/7 Support</h6>
+							<p>Free Shipping on all order</p>
+						</div>
+					</div>
+					<!-- single features -->
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-features">
+							<div class="f-icon">
+								<img src="{% static 'images/features/f-icon4.png' %}" alt="">
+							</div>
+							<h6>Secure Payment</h6>
+							<p>Free Shipping on all order</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end features Area -->
+	</div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION MAIN END// ========================= -->
+<!-- ========================= SECTION MAIN END// ========================= -->
+
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name padding-y-sm">
+<div class="container">
+
+<header class="section-heading">
+	<a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
+	<h3 class="section-title">Popular products</h3>
+</header><!-- sect-heading -->
+
+	
+<div class="row">
+	{% for product in products %}
+	<div class="col-md-3">
+		<div class="card card-product-grid">
+			<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
+				<div class="price mt-1">$ {{ product.price }}</div> <!-- price-wrap.// -->
+				<div class="rating-star">
+					<span>
+						<i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+						</span>
+				</div>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	{% endfor %}
+</div> <!-- row.// -->
+
+</div><!-- container // -->
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+
+
+
+
+<!-- ========================= FOOTER ========================= -->
+{% endblock %}

@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Hi, {{user.first_name}},
+Please click on the link below to complete your registration with E-Cart.
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+If you think it's a mistake, please ignore this email.
+
+{% endautoescape %}
