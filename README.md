@@ -1,4 +1,4 @@
-# Emart- E-commerce Website
+# Emart | E-commerce Website
 A scalable Django Ecommerce Website
 
 ## Live
