@@ -25,26 +25,27 @@ A scalable Django Ecommerce Website
 
 ### Clone the project
 
-
+```
 git clone https://github.com/AditiAgarwal17/emart_django.git
 cd mart
-
+```
 
 ### Install dependencies & activate virtualenv
 
-
+```
 pip install pipenv
 
 pip install -r requirements.txt
-
+```
 
 ### Apply migrations
 
-
+```
 python manage.py makemigrations
 python manage.py migrate
-
+```
 ### Running
 
-
+```
 python manage.py runserver
+```
